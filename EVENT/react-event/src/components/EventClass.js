@@ -21,6 +21,8 @@ class EventClass extends Component {
   }
 
   // 사용할 함수 내용 : 어떠한 함수 모습이든 상관없음
+  // 선언적 함수 형태로 작성할 경우 constructor에서 bind를 해주어야 한다
+  // 화살표 함수 형태로 작성할 경우 this가 없기 때문에 호출되는 곳의 this를 사용
   onClickEvent() {
     this.setState(() => ({
       message: "메시지가 바뀌었습니다",
