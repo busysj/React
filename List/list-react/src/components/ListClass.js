@@ -29,6 +29,13 @@ class ListClass extends Component {
       ],
     };
   }
+  // 함수를 들고와서 클래스형에서 사용할 수 있도록 수정
+  deleteSeason = (id) => {
+    const nextSeason = this.state.season.filter((s) => s.id !== id);
+    // 클래스형에서는 setState를 통해서 값을 수정한다.
+    this.setState({ season: nextSeason });
+  };
+
   //바뀐 값을 가져오는 함수
   changeText = (e) =>
     this.setState({
@@ -58,21 +65,31 @@ class ListClass extends Component {
         <ul>{listSeason}</ul>
         <ol>
           {season.map((s) => (
-            <li key={s.id}>{s.text}</li>
+            <li
+              key={s.id}
+              onClick={() => {
+                // 이벤트 안에서 인수를 전달할 때에는 화살표함수로 감싸서 전달
+                this.deleteSeason(s.id);
+              }}
+            >
+              {s.text}
+            </li>
           ))}
         </ol>
         <table>
-          <tr>
-            <td>id</td>
-            <td>이름</td>
-          </tr>
-          {students.map((student) => (
-            // 여러줄로 작성할 때 () 묶어서 return으로 보냄
-            <tr key={student.id}>
-              <td>{student.id}</td>
-              <td>{student.name}</td>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td>이름</td>
             </tr>
-          ))}
+            {students.map((student) => (
+              // 여러줄로 작성할 때 () 묶어서 return으로 보냄
+              <tr key={student.id}>
+                <td>{student.id}</td>
+                <td>{student.name}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     );
