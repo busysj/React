@@ -39,9 +39,7 @@ class ListClass extends Component {
   //바뀐 값을 가져오는 함수
   changeText = (e) =>
     this.setState({
-      inputText: {
-        [e.target.name]: e.target.value,
-      },
+      [e.target.name]: e.target.value,
     });
 
   // 배열에 값을 넣는 함수
