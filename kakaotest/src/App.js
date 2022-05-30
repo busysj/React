@@ -1,10 +1,11 @@
 import "./App.css";
-import Map from "./components/map";
+// import MapTest from "./components/MapTest";
+import ApiTest from "./components/ApiTest";
 
 function App() {
   return (
     <div className="App">
-      <Map />
+      <ApiTest />
     </div>
   );
 }
