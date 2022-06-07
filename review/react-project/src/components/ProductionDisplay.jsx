@@ -22,6 +22,16 @@ const ProductionDisplay = ({ product }) => {
           // 아래는 product 값 상관없이 전체 값 들고옴
           data.state.comments.map((comment) => (
             <li key={comment.id}>
+              {/* 코멘트 창에서 사용한 내용을 가져와서 출력해준다 */}
+              <div
+                id="img_box"
+                style={{
+                  width: "100px",
+                  height: "50px",
+                  backgroundSize: "cover",
+                  backgroundImage: `url(${comment.img})`,
+                }}
+              ></div>
               {comment.user} : {comment.text}
             </li>
           ))

@@ -9,7 +9,9 @@ import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* 기본 URL을 제공 : PUBLIC_URL 즉 레파지토리의 url,
+      package.json에 작성된 homepage의 주소 */}
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
