@@ -1,6 +1,8 @@
 import React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+
+// 리덕스 값을 확인하기 위한 dev툴 - 크롬 확장앱도 설치해야함
 import { composeWithDevTools } from "redux-devtools-extension";
 import ReactDOM from "react-dom/client";
 import "./index.css";
