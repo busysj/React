@@ -1,5 +1,7 @@
 import React from "react";
-import { createStore } from "redux";
+// 리덕스의 스토어 작성
+// 미들웨어 추가를 위한 applyMiddleware
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
 // 리덕스 값을 확인하기 위한 dev툴 - 크롬 확장앱도 설치해야함
@@ -9,8 +11,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import rootReducer from "./modules";
+// import loggerMiddleware from "./lib/loggerMiddleware";
+import { createLogger } from "redux-logger";
 
-const store = createStore(rootReducer, composeWithDevTools());
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(logger));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
