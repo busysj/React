@@ -9,13 +9,25 @@
 
 import React from "react";
 
-const Counter = ({ number, onIncrease, onDecrease }) => {
+const Counter = ({
+  number,
+  onIncrease,
+  onDecrease,
+  diff,
+  onSetDiff,
+  onDiff,
+}) => {
+  const onChange = (e) => {
+    onSetDiff(e.target.value);
+  };
   return (
     <div>
       <h1>{number}</h1>
+      <input type="number" value={diff} onChange={onChange} />
       <div>
         <button onClick={onDecrease}>-</button>
         <button onClick={onIncrease}>+</button>
+        <button onClick={onDiff}>작성한 숫자만큼 증가</button>
       </div>
     </div>
   );

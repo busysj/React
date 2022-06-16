@@ -13,9 +13,15 @@ import reportWebVitals from "./reportWebVitals";
 import rootReducer from "./modules";
 // import loggerMiddleware from "./lib/loggerMiddleware";
 import { createLogger } from "redux-logger";
+import ReduxThunk from "redux-thunk";
+import createSagaMiddleware from "@redux-saga/core";
 
 const logger = createLogger();
-const store = createStore(rootReducer, applyMiddleware(logger));
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+  rootReducer,
+  applyMiddleware(logger, ReduxThunk, sagaMiddleware)
+);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

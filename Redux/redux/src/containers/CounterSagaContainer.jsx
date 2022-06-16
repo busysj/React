@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Counter from "../components/Counter";
 import { decreaseAsync, increaseAsync } from "../modules/counterAsync";
 
-const CounterAsyncContainer = () => {
-  const number = useSelector((state) => state.counterAsync.number);
+const CounterSagaContainer = () => {
+  const number = useSelector((state) => state.counterSagaReducer.number);
   const dispatch = useDispatch();
 
   const onIncrease = useCallback(() => dispatch(increaseAsync()), [dispatch]);
@@ -15,4 +15,4 @@ const CounterAsyncContainer = () => {
   );
 };
 
-export default CounterAsyncContainer;
+export default CounterSagaContainer;
