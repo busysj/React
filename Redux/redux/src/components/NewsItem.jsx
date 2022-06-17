@@ -10,8 +10,8 @@ const NewsItem = ({ loadingNew, news }) => {
         !loadingNew &&
           news &&
           // news를 map을 이용하여 반복
-          news.map((n) => (
-            <div>
+          news.map((n, index) => (
+            <div key={index}>
               <h2>{n.title}</h2>
               <p>{n.description}</p>
             </div>

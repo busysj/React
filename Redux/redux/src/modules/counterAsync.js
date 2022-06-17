@@ -20,7 +20,7 @@ export const increaseAsync = () => (dispatch) => {
   }, 1000);
 };
 
-export const decreaseAsyc = () => (dispatch) => {
+export const decreaseAsync = () => (dispatch) => {
   setTimeout(() => {
     dispatch(decrease());
   }, 1000);
