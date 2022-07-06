@@ -40,7 +40,10 @@ export function register(config) {
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
+        // navigator를 이용하여 서비스 워커 준비
         navigator.serviceWorker.ready.then(() => {
+          // 푸시 허용할 지 창을 띄움
+          Notification.requestPermission();
           console.log(
             "This web app is being served cache-first by a service " +
               "worker. To learn more, visit https://cra.link/PWA"
@@ -73,6 +76,12 @@ function registerValidSW(swUrl, config) {
                 "New content is available and will be used when all " +
                   "tabs for this page are closed. See https://cra.link/PWA."
               );
+
+              // 푸시 알람 subscribe (구독)
+              registration.pushManager.subscribe({
+                userVisibleOnly: true,
+                // applicationServerKey : 원래는 넣어줘야하지만 지금 서버X 비워둠
+              });
 
               // Execute callback
               if (config && config.onUpdate) {
